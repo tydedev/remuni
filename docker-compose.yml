@@ -1,0 +1,18 @@
+version: '3.5'
+name: 'remuni'
+services:
+  db: 
+    image: postgres
+    restart: always
+    container_name: remuni_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: remuni
+    ports:
+      - 8011:5432
+    volumes:
+      - ./db_data:/var/lib/postgresql-data
+
+volumes:
+  db_data:
